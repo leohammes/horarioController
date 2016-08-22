@@ -1,0 +1,91 @@
+<html ng-app="StarterApp">
+	<head>
+		<meta name="viewport" content="width=350">
+		<script src=".\js\thirty\jquery\jquery.min.js"></script>
+		<script src=".\js\thirty\jquery\jquery-ui.js"></script>
+		<script src=".\js\thirty\jquery\jquery.mask.min.js"></script>
+		<script src=".\js\thirty\clockpicker\clockpicker.js"></script>
+		<script src=".\js\general.js"></script>
+		<link rel="stylesheet" href=".\css\thirty\angular\angular-material.min.css">
+		<link rel="stylesheet" href=".\css\thirty\angular\font-angular.css">
+		<link rel="stylesheet" href=".\css\general.css" type="text/css">
+		<link rel="stylesheet" media="(min-width: 320px)" href=".\css\mobile.css">
+		<link rel="stylesheet" href=".\css\thirty\clockpicker\clockpicker.css">
+		<link rel="stylesheet" href=".\css\thirty\clockpicker\standalone.css">
+		<link rel="shortcut icon" href=".\images\favicon.ico">
+	</head>
+	<body>
+		<div class='wrapper' ng-controller="AppCtrl">
+			<div class="header"></div>
+			<md-card class="principal-card">
+				<img style="height: 150px" ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
+				<h2 class="md-title your-time">Seu horário</h2>
+				<md-card-content style="background-color: #80CBC4;">
+					<md-button ng-click="toggleLeft()" class="md-fab md-primary settings-button" aria-label="Comment">
+						<image src="./images/settings.png"></image>
+					</md-button>
+					<md-card class="internal-content">
+						<div class="saida-content"style="width: 100%; height: 55px;">
+							<image class="clock-icon" src="images/clock.png"/>
+							<div class="span" id='saidaSpan'>00:00</div>
+						</div>
+						<div class="line-separator"></div>
+						<div>
+							<image style="top: 30px; left: 45px;" class="clock-icon" src="images/hourglass 2.png"/>
+							<div class="span" id='restanteSpan'>00:00</div>
+						</div>
+						<div style="top: 30px;" class="line-separator"></div>
+					</md-card>
+				</md-card-content>
+				
+			</md-card>
+			
+			<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+				<md-toolbar class="md-theme-indigo">
+					<h1 class="md-toolbar-tools configure">Configurações</h1>
+				</md-toolbar>
+				<md-content style='height: 360px; overflow: hidden;' layout-padding ng-controller="LeftCtrl">
+					<form name="projectForm">
+						<p hide-md show-gt-md>
+							<md-input-container>
+								<label class="entrance" >Hora entrada</label>
+								<input readonly="true" class="entrance" required name="entrance" ng-model="horaEntrada">
+							</md-input-container>
+							
+							<div style="  height: 180px; width: 100%; top: -25px; position: relative;">
+								<div style="width: 50%; height: 130px; float: left;">
+									<md-input-container>
+									  <label style="width: 190px;" class="beforeLunch" >Hora Saída para almoço</label>
+									  <input readonly="true" class="beforeLunch" id="horaSaida" required ng-model="horaSaida">
+									</md-input-container>
+									
+									<md-input-container>
+									  <label style="width: 200px;" class="afterLunch" >Hora entrada após almoço</label>
+									  <input readonly="true" class="afterLunch" id="horaEntradaAlmoco" required ng-model="horaEntradaAlmoco">
+									</md-input-container>
+								</div>
+								
+								<div class="luch-time">
+									<div class="span lunch-time-interval" id='almocoSpan'>00:00</div>
+								</div>
+								
+								<span class="underline warn">Até o dia <b style='color: black;'>18/09</b>, seu horário será acrescido de 15 min.</span> 
+							</div>
+							<md-button ng-click="translate()" class="md-fab md-primary translate-button" aria-label="Comment">
+								<img class="flag-button-icon" ng-src="{{flagSrcIcon}}">
+							</md-button>
+							<md-button class="md-raised md-primary ok-button" ng-click="calculate()" hide-gt-md>
+								<label style='cursor: pointer;'>Ok :)</label>
+							</md-button>
+						</p>
+					</form>
+				</md-content>
+			</md-sidenav>
+		</div>
+		
+		<script src=".\js\thirty\angular\angular.min.js"></script>
+		<script src=".\js\thirty\angular\angular-animate.min.js"></script>
+		<script src=".\js\thirty\angular\angular-aria.min.js"></script>
+		<script src=".\js\thirty\angular\angular-material.min.js"></script>
+	</body>
+</html>

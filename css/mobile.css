@@ -1,0 +1,12 @@
+@media screen and (max-width: 320px) {
+    md-card.principal-card {
+        left: calc(50% - 137px);
+    }
+	
+	body {
+		width: calc(100% + 30px);
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
